@@ -72,21 +72,61 @@ public class MyMergeSort<T extends Comparable<T>> {
   @SuppressWarnings("unchecked")
   public void sort(T[] a) {
     aux = (T[]) new Comparable[a.length];  // DO NOT CHANGE THIS LINE
-    // TODO: complete  
+    // TODO: complete 
+    sortHelper(a, 0, a.length - 1); // Start sorting the entire array
     
   }
   
   private boolean less(T v, T w) {
     // TODO: replace the line below
-    return false;
+    return v.compareTo(w) < 0;
+    // return false;
   }
   
   private void sortHelper(T[] a, int lo, int hi) {
     // TODO: complete
-  }
-  
+    
+    if (hi <= lo) {
+        return;
+    }
+
+    int mid = lo + (hi - lo) / 2; // Find the middle index
+
+    // Recursively sort the left half
+    sortHelper(a, lo, mid);
+
+    // Recursively sort the right half
+    sortHelper(a, mid + 1, hi);
+
+    // Merge the two sorted halves
+    merge(a, lo, mid, hi);
+
+    return;
+
+  }  
   private void merge(T[] a, int lo, int mid, int hi) {
     // TODO: complete
+
+    // Copy the data to the auxiliary array
+    for (int k = lo; k <= hi; k++) {
+        aux[k] = a[k];
+    }
+
+    int i = lo, j = mid + 1;
+
+    // Merge the two halves back into the main array
+    for (int k = lo; k <= hi; k++) {
+        if (i > mid) {  // Left half is exhausted
+            a[k] = aux[j++];
+        } else if (j > hi) {  // Right half is exhausted
+            a[k] = aux[i++];
+        } else if (less(aux[j], aux[i])) {  // Current element from right half is smaller
+            a[k] = aux[j++];
+        } else {  // Current element from left half is smaller
+            a[k] = aux[i++];
+        }
+    }
+
   }
   
   // DO NOT CHANGE

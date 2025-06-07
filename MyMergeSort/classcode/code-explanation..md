@@ -31,7 +31,7 @@ This merges two sorted subarrays into a single sorted array.
 
 This is the core operation of merge sort.
 
-Main Method (Testing)
+# Main Method (Testing)
 It creates an instance of MyMergeSort<Integer> and MyMergeSort<Character>.
 
 It sorts Integer and Character arrays.
@@ -40,7 +40,7 @@ It asserts whether the sorting was successful.
 
 StdOut.println() displays a confirmation if the sorting is correct.
 
-What Needs to be Completed?
+# What Needs to be Completed?
 Implement less() so it correctly compares two elements.
 
 Implement sortHelper() to recursively divide and sort the array.
