@@ -143,6 +143,8 @@ public class MyMergeSort<T extends Comparable<T>> {
     my_assert(Arrays.equals(carr, new Character[] {'a', 'b', 'c', 'd', 'e', 'f', 'g'}));
     
     StdOut.println("... All tests pass, but check the prints with those in Part 2");
+    //System.out.println("... All tests pass, but check the prints with those in Part 2");
+  
   }
   
   // DO NOT CHANGE
